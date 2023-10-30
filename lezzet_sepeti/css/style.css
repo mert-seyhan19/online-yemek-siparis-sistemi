@@ -377,12 +377,20 @@ button {
 .about_section {
     width: 100%;
     float: left;
+	margin: 50px 0 0 0;
+}
+
+.about_section_hakkimizda {
+    width: 100%;
+    float: left;
+	margin: 50px 0 120px 0;
 }
 
 .about_taital_main {
     width: 100%;
     float: left;
-    padding: 120px 0px;
+    padding: 0px 0px;
+	margin: 0 0 70px 0;
 }
 
 .about_taital {
@@ -411,6 +419,8 @@ button {
     margin: 0px;
     padding-top: 10px;
 }
+
+
 
 .read_bt {
     width: 175px;
