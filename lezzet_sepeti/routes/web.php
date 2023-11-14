@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SayfalarControl;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layout.anasayfa');
+    return view('sayfalar.index');
 });
+
+Route::get("/anasayfa",[SayfalarControl::class,'anasayfa']);
+
+Route::get("/hakkimizda",[SayfalarControl::class,'hakkimizda']);
+
+Route::get("/kebaplar",[SayfalarControl::class,'kebaplar']);
+
+Route::get("/pizzalar",[SayfalarControl::class,'pizzalar']);
+
+Route::get("/pideler",[SayfalarControl::class,'pideler']);
+
+Route::get("/tatlilar",[SayfalarControl::class,'tatlilar']);
+
+Route::get("/icecekler",[SayfalarControl::class,'icecekler']);
+
+Route::get("/iletisim",[SayfalarControl::class,'iletisim']);
