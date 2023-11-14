@@ -46,5 +46,10 @@ class SayfalarControl extends Controller
       return view('sayfalar/iletisim'); // 'home' şablonunu döndür
   }
 
+  public function login()
+  {
+      return view('sayfalar/admin/login'); // 'home' şablonunu döndür
+  }
+
 
 }

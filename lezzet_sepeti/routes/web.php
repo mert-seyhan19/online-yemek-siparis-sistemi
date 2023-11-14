@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SayfalarControl;
+use App\Http\Controllers\Admin\Anasayfacontrol;
 
 
 /*
@@ -34,3 +35,7 @@ Route::get("/tatlilar",[SayfalarControl::class,'tatlilar']);
 Route::get("/icecekler",[SayfalarControl::class,'icecekler']);
 
 Route::get("/iletisim",[SayfalarControl::class,'iletisim']);
+
+Route::get("/admin",[Anasayfacontrol::class,'admin']);
+
+Route::get("/admin/login",[SayfalarControl::class,'login']);
