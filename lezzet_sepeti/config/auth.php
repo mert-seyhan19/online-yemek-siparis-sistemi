@@ -36,11 +36,17 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
-    ],
+     'web' => [
+         'driver' => 'session',
+         'provider' => 'users',
+     ],
+
+     'admin' => [
+         'driver' => 'session',
+         'provider' => 'admin',
+     ],
+ ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -60,16 +66,20 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
+     'users' => [
+         'driver' => 'eloquent',
+         'model' => App\Models\AdminGiris::class, // AdminGiris modeliniz
+         'table' => 'admin_giris', // Tablo adınız
+     ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
-    ],
+     'admin' => [
+         'driver' => 'eloquent',
+         'model' => App\Models\AdminGiris::class,
+     ],
+ ],
+
+
+
 
     /*
     |--------------------------------------------------------------------------

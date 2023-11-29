@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SayfalarControl;
-use App\Http\Controllers\Admin\Anasayfacontrol;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
+
+
 
 
 /*
@@ -36,6 +39,14 @@ Route::get("/icecekler",[SayfalarControl::class,'icecekler']);
 
 Route::get("/iletisim",[SayfalarControl::class,'iletisim']);
 
-Route::get("/admin",[Anasayfacontrol::class,'admin']);
 
-Route::get("/admin/login",[SayfalarControl::class,'login']);
+
+
+Route::get('/login', function () {
+    return view('sayfalar.admin.login');
+})->name('login');
+
+
+Route::post('/login/check', [LoginController::class, 'check'])->name('login.check');
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
