@@ -10,6 +10,6 @@ class AdminController extends Controller
 {
   public function index()
   {
-      return view('sayfalar.admin.index'); // Eğer admin.blade.php adlı bir görünüm dosyanız varsa
+      return view('sayfalar.admin.index');
   }
 }

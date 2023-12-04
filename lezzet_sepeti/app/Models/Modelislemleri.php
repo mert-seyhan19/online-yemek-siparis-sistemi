@@ -14,4 +14,12 @@ class Modelislemleri extends Model implements Authenticatable
 
     protected $table = "admin_tablosu";
     protected $fillable = ["mail_adresi", "sifre", "created_at", "updated_at"];
+
+
+
+
+
+
+
+
 }

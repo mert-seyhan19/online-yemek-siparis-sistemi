@@ -11,6 +11,7 @@ use App\Models\Modelislemleri;
 class LoginController extends Controller
 {
 
+          // Aşağıda admin kontrolü yapılmaktadır. Mail adresi ve şifresi doğruysa admin sayfasına yönlendirir.
           public function check(Request $request)
           {
               $credentials = $request->only('mail_adresi', 'sifre');

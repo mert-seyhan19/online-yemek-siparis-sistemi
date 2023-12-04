@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SayfalarControl;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
 
 
 
@@ -49,4 +50,17 @@ Route::get('/login', function () {
 
 Route::post('/login/check', [LoginController::class, 'check'])->name('login.check');
 
-Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+
+
+
+
+
+
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+
+    Route::get('admin/category', [CategoryController::class, 'index'])->name('admin_category');
+    Route::get('admin/category/add', [CategoryController::class, 'add'])->name('admin_category_add');
+    Route::get('admin/category/create', [CategoryController::class, 'create'])->name('admin_category_create');
+    Route::get('admin/category/update', [CategoryController::class, 'update'])->name('admin_category_update');
+    Route::get('admin/category/delete', [CategoryController::class, 'destroy'])->name('admin_category_delete');
+    Route::get('admin/category/show', [CategoryController::class, 'show'])->name('admin_category_show');
