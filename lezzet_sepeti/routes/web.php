@@ -60,7 +60,8 @@ Route::post('/login/check', [LoginController::class, 'check'])->name('login.chec
 
     Route::get('admin/category', [CategoryController::class, 'index'])->name('admin_category');
     Route::get('admin/category/add', [CategoryController::class, 'add'])->name('admin_category_add');
-    Route::get('admin/category/create', [CategoryController::class, 'create'])->name('admin_category_create');
-    Route::get('admin/category/update', [CategoryController::class, 'update'])->name('admin_category_update');
-    Route::get('admin/category/delete', [CategoryController::class, 'destroy'])->name('admin_category_delete');
+    Route::post('admin/category/create', [CategoryController::class, 'create'])->name('admin_category_create');
+    Route::get('admin/category/edit/{id}', [CategoryController::class, 'edit'])->name('admin_category_edit');
+    Route::post('admin/category/update/{id}', [CategoryController::class, 'update'])->name('admin_category_update');
+    Route::get('admin/category/delete/{id}', [CategoryController::class, 'destroy'])->name('admin_category_delete');
     Route::get('admin/category/show', [CategoryController::class, 'show'])->name('admin_category_show');

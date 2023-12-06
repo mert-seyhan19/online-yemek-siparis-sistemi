@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin | Kategori Sayfası</title>
+  <title>Admin | Kategori Düzenleme Sayfası</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -44,6 +44,11 @@
 
 
 
+
+
+
+
+
   <!-- Content Wrapper. Contains page content -->
    <div class="content-wrapper">
      <!-- Content Header (Page header) -->
@@ -51,12 +56,12 @@
        <div class="container-fluid">
          <div class="row mb-2">
            <div class="col-sm-6">
-             <h1>Kategoriler</h1>
+             <h1>Kategori Düzenle</h1>
            </div>
            <div class="col-sm-6">
              <ol class="breadcrumb float-sm-right">
                <li class="breadcrumb-item"><a href="#">Home</a></li>
-               <li class="breadcrumb-item active">Kategori</li>
+               <li class="breadcrumb-item active">Kategori Düzenle</li>
              </ol>
            </div>
          </div>
@@ -69,44 +74,79 @@
        <!-- Default box -->
            <div class="card">
              <div class="card-header">
+               <h3 class="card-title">Kategori Düzenleme Formu</h3>
 
-               <a class="btn  btn-info" href="{{route('admin_category_add')}}">Kategori Ekle</a>
              </div>
              <!-- /.card-header -->
              <div class="card-body">
-               <table id="example1" class="table table-bordered table-striped">
-                 <thead>
-                 <tr>
-                   <th>Id</th>
-                   <th>Parent</th>
-                   <th>Title</th>
-                   <th>Status</th>
-                   <th>Edit</th>
-                   <th>Delete</th>
-                 </tr>
-                 </thead>
-                 <tbody>
-
-                  @foreach ($datalist as $rs)
 
 
 
-                 <tr>
-                   <td>{{ $rs->id }}</td>
-                   <td>{{ $rs->parent_id }}</td>
-                   <td>{{ $rs->title }}</td>
-                   <td>{{ $rs->status }}</td>
-                   <td><a href="{{route('admin_category_edit', ['id' => $rs->id])}}">Edit</a></td>
-                   <td><a href="{{route('admin_category_delete', ['id' => $rs->id])}}" onclick="return confirm('Silmek istediğinize emin misiniz?')">Delete</a></td>
-                 </tr>
-
-                  @endforeach
 
 
+                   <!-- form start -->
+                   <form role="form" action="{{route('admin_category_update',['id'=>$data->id])}}" method="post">
+                     @csrf
+                     <div class="card-body">
 
-                 </tbody>
+                       <div class="form-group">
+                         <label>Parent</label>
 
-               </table>
+                         <select class="form-control select2bs4" name="parent_id" style="width: 100%;">
+
+                           <option value="0">Ana Kategori</option>
+                           @foreach ($datalist as $rs)
+                              <option value="{{ $rs->id }}" @if ($rs->id == $data->parent_id) selected="selected" @endif>{{ $rs->title }}</option>
+                           @endforeach
+                         </select>
+
+                       </div>
+
+                       <div class="form-group">
+                         <label>Title</label>
+                         <input type="text" name="title" value="{{$data->title}}" class="form-control" >
+                       </div>
+
+                       <div class="form-group">
+                         <label>Keywords</label>
+                         <input type="text" name="keywords" value="{{$data->keywords}}" class="form-control" >
+                       </div>
+
+                       <div class="form-group">
+                         <label>Description</label>
+                         <input type="text" name="description" value="{{$data->description}}" class="form-control" >
+                       </div>
+
+                       <div class="form-group">
+                         <label>Slug</label>
+                         <input type="text" name="slug" value="{{$data->slug}}" class="form-control" >
+                       </div>
+
+                       <div class="form-group">
+                          <label>Status</label>
+                          <select class="form-control select2bs4" name="status" style="width: 100%;">
+                            <option selected="selected" value="{{$data->status}}"></option>
+                            <option>False</option>
+                            <option>True</option>
+                          </select>
+                        </div>
+
+
+
+
+
+                     <!-- /.card-body -->
+
+                     <div class="card-footer">
+                       <button type="submit" class="btn btn-primary">Kategori Güncelle</button>
+                     </div>
+                   </form>
+
+
+
+
+
+
              </div>
              <!-- /.card-body -->
            </div>
@@ -126,6 +166,8 @@
 
      </section>
      <!-- /.content -->
+
+
    </div>
    <!-- /.content-wrapper -->
 
