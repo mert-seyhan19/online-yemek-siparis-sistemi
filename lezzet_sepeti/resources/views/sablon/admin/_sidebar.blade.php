@@ -31,47 +31,20 @@
         <li class="nav-item">
           <a href="{{route('admin_category')}}" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>
-              Category
+              Kategori
           </a>
         </li>
-
-
 
         <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-chart-pie"></i>
-            <p>
-              Charts
-              <i class="right fas fa-angle-left"></i>
-            </p>
+          <a href="{{route('admin_products')}}" class="nav-link">
+            <i class="nav-icon fas fa-copy"></i>
+              Ürünler
           </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="pages/charts/chartjs.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>ChartJS</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/charts/flot.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Flot</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/charts/inline.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Inline</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/charts/uplot.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>uPlot</p>
-              </a>
-            </li>
-          </ul>
         </li>
+
+
+
+
 
 
 
@@ -98,9 +71,9 @@
         </li>
         <li class="nav-header">LABELS</li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <a href="{{route('admin_setting')}}" class="nav-link">
             <i class="nav-icon far fa-circle text-danger"></i>
-            <p class="text">Important</p>
+            <p class="text">Settings</p>
           </a>
         </li>
         <li class="nav-item">
