@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +30,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-      $datalist = Product::all();
+      $datalist = Category::with('children')->get();
       return view('sayfalar.admin.product_add', ['datalist' => $datalist]);
     }
 
@@ -80,7 +81,7 @@ class ProductController extends Controller
     public function edit(Product $product, $id)
     {
       $data = Product::find($id);
-      $datalist = Product::all();
+      $datalist = Category::with('children')->get();
       return view('sayfalar.admin.product_edit',['data' => $data,'datalist' => $datalist]);
     }
 

@@ -94,9 +94,11 @@
 
                          <select class="form-control select2bs4" name="parent_id" style="width: 100%;">
 
-                           <option value="0">Ana Kategori</option>
+                           <option value="0" selected="selected">Ana Kategori</option>
                            @foreach ($datalist as $rs)
-                              <option value="{{ $rs->id }}" @if ($rs->id == $data->parent_id) selected="selected" @endif>{{ $rs->title }}</option>
+                              <option value="{{ $rs->id }}" @if ($rs->id == $data->parent_id) selected="selected" @endif>
+                                    {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}
+                              </option>
                            @endforeach
                          </select>
 

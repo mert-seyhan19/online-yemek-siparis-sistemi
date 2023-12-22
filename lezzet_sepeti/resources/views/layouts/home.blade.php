@@ -11,10 +11,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>$setting->title</title>
-      <meta name="keywords" content="$setting->keywords">
-      <meta name="description" content="$setting->description">
-      <meta name="author" content="">
+      <title> @yield('title') </title>
+      <meta name="keywords" content="@yield('keywords')">
+      <meta name="description" content="@yield('description')">
+      <meta name="author" content="@yield('author')">
       <!-- bootstrap css -->
       <link rel="stylesheet" type="text/css" href="{{asset('assets')}}/css/bootstrap.min.css">
       <!-- style css -->
@@ -34,23 +34,56 @@
       <link rel="stylesheet" href="{{asset('assets')}}/css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    @yield('css')
+    @yield('headerjs')
    </head>
 
 
    <body>
 
-      @include('sablon._header')
-      @include('sablon._GirisYapModal')
-      @include('sablon._KayitOlModal')
-      @include('sablon._banner')
-      @include('sablon._hakkimizda')
-      @include('sablon._galeri')
-      @include('sablon._services')
-      @include('sablon._yorumlar')
-      @include('sablon._iletisim')
-      @include('sablon._footer')
+     <!--header section start -->
+     <div class="header_section">
+        <div class="container-fluid">
+           <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+              @include('home._firma_ismi')
+
+              <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+
+              @include('home._category')
+              @include('home._menu')
+
+                    </ul>
+             </div>
+
+             <!--Modal Butonu Başlangıç -->
+             <ul class="navbar-nav ml-auto">
+
+                @include('home._modal')
+
+             </ul>
+            <!--Modal Butonu Bitiş -->
+
+            
 
 
+           </nav>
+       </div>
+    </div>
+    <!--header section end -->
+
+
+    @section('content')
+      İçerik Alanı
+    @show
+
+
+
+     @include('home._footer')
+
+     @yield('footerjs')
    </body>
 
 </html>

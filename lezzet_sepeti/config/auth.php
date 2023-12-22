@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'admins',
     ],
 
     /*
@@ -38,7 +38,7 @@ return [
     'guards' => [
      'web' => [
          'driver' => 'session',
-         'provider' => 'users',
+         'provider' => 'admins',
      ],
 
      'admin' => [
@@ -66,15 +66,15 @@ return [
     */
 
     'providers' => [
-     'users' => [
+     'admins' => [
          'driver' => 'eloquent',
-         'model' => App\Models\AdminGiris::class, // AdminGiris modeliniz
-         'table' => 'admin_giris', // Tablo adınız
+         'model' => App\Models\Admin::class,
+         'table' => 'admins',
      ],
 
      'admin' => [
          'driver' => 'eloquent',
-         'model' => App\Models\AdminGiris::class,
+         'model' => App\Models\Admin::class,
      ],
  ],
 
@@ -98,7 +98,7 @@ return [
 
     'passwords' => [
         'users' => [
-            'provider' => 'users',
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
