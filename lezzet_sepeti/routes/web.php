@@ -44,7 +44,7 @@ Route::get("/iletisim",[SayfalarControl::class,'iletisim']);
 
 Route::get('/admin/login', [HomeController::class, 'login'])->name('admin_login');
 Route::post('/admin/logincheck', [HomeController::class, 'logincheck'])->name('admin_logincheck');
-Route::get('/admin/logout', [HomeController::class, 'logout'])->name('admin_logout');
+Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 
 
 Route::get('/admin', [HomeController::class, 'index'])->name('admin')->middleware('auth');
