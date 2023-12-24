@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SayfalarControl;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 
 
 use App\Http\Controllers\Admin\HomeController;
@@ -49,6 +50,9 @@ Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
 
 Route::get('/admin', [HomeController::class, 'index'])->name('admin')->middleware('auth');
 
+
+
+Route::middleware('auth')->group(function(){
     // Kategori Ekleme Başlangıç
     Route::get('admin/category', [CategoryController::class, 'index'])->name('admin_category');
     Route::get('admin/category/add', [CategoryController::class, 'add'])->name('admin_category_add');
@@ -58,8 +62,10 @@ Route::get('/admin', [HomeController::class, 'index'])->name('admin')->middlewar
     Route::get('admin/category/delete/{id}', [CategoryController::class, 'destroy'])->name('admin_category_delete');
     Route::get('admin/category/show', [CategoryController::class, 'show'])->name('admin_category_show');
     // Kategori Ekleme Bitiş
+});
 
 
+Route::middleware('auth')->group(function(){
     // Ürün Ekleme Başlangıç
     Route::get('/admin/product', [ProductController::class, 'index'])->name('admin_products');
     Route::get('admin/product/create', [ProductController::class, 'create'])->name('admin_product_add');
@@ -69,21 +75,46 @@ Route::get('/admin', [HomeController::class, 'index'])->name('admin')->middlewar
     Route::get('admin/product/delete/{id}', [ProductController::class, 'destroy'])->name('admin_product_delete');
     Route::get('admin/product/show', [ProductController::class, 'show'])->name('admin_product_show');
     // Ürün Ekleme Bitiş
+});
 
 
 
+Route::middleware('auth')->group(function(){
     // Resim Ekleme Başlangıç
     Route::get('admin/image/create/{product_id}', [ImageController::class, 'create'])->name('admin_image_add');
     Route::post('admin/image/store/{product_id}', [ImageController::class, 'store'])->name('admin_image_store');
     Route::get('admin/image/delete/{id}/{product_id}', [ImageController::class, 'destroy'])->name('admin_image_delete');
     Route::get('admin/image/show', [ImageController::class, 'show'])->name('admin_image_show');
     // Resim Ekleme Bitiş
+});
 
 
+
+Route::middleware('auth')->group(function(){
     // Setting Başlangıç
     Route::get('admin/setting', [SettingController::class, 'index'])->name('admin_setting');
     Route::post('admin/setting/update', [SettingController::class, 'update'])->name('admin_setting_update');
+});
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// User Profile Başlangıç
+Route::middleware('auth')->group(function(){
+    // Setting Başlangıç
+    Route::get('/myaccount', [UserController::class, 'index'])->name('myprofile');
+
+});
+// User Profile Bitiş
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
