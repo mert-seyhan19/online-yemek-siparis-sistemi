@@ -29,7 +29,9 @@ use App\Http\Controllers\Admin\SettingController;
 
 Route::get("/",[SayfalarControl::class,'index'])->name('index');
 Route::get("/anasayfa",[SayfalarControl::class,'anasayfa'])->name('anasayfa');
-Route::get("/hakkimizda",[SayfalarControl::class,'hakkimizda']);
+Route::get("/aboutus",[SayfalarControl::class,'aboutus'])->name('aboutus');
+Route::get("/references",[SayfalarControl::class,'references'])->name('references');
+Route::get("/contact",[SayfalarControl::class,'contact'])->name('contact'); 
 Route::get("/kategoriler",[SayfalarControl::class,'categorylist']);
 Route::get("/kebaplar",[SayfalarControl::class,'kebaplar']);
 Route::get("/pizzalar",[SayfalarControl::class,'pizzalar']);

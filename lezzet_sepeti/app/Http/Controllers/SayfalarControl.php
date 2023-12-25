@@ -33,6 +33,29 @@ class SayfalarControl extends Controller
         return view('home.index',['setting'=>$setting]);
       }
 
+      public function aboutus()
+      {
+        $setting = Setting::first();
+        return view('home.about',['setting'=>$setting]);
+      }
+
+
+      public function references()
+      {
+        $setting = Setting::first();
+        return view('home.references',['setting'=>$setting]);
+      }
+
+      public function contact()
+      {
+        $setting = Setting::first();
+        return view('home.contact',['setting'=>$setting]);
+      }
+
+
+
+
+
 
 
 
