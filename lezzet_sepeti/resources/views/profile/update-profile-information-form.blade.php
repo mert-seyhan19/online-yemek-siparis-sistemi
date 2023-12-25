@@ -12,7 +12,7 @@
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
             <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
                 <!-- Profile Photo File Input -->
-                <input type="file" class="hidden"
+                <input type="file" class=""
                             wire:model="photo"
                             x-ref="photo"
                             x-on:change="
@@ -31,8 +31,10 @@
                     <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
+
+
                 <!-- New Profile Photo Preview -->
-                <div class="mt-2" x-show="photoPreview" style="display: none;">
+                <div class="mt-2" x-show="photoPreview" style="display: ;">
                     <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
                           x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
                     </span>
@@ -81,6 +83,22 @@
                 @endif
             @endif
         </div>
+
+        <!-- Phone -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="phone" value="{{ __('Phone') }}" />
+            <x-jet-input id="phone" type="text" class="mt-1 block w-full" wire:model.defer="state.phone" />
+            <x-jet-input-error for="phone" class="mt-2" />
+        </div>
+
+        <!-- Address -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="address" value="{{ __('Address') }}" />
+            <x-jet-input id="address" type="text" class="mt-1 block w-full" wire:model.defer="state.address" />
+            <x-jet-input-error for="address" class="mt-2" />
+        </div>
+
+
     </x-slot>
 
     <x-slot name="actions">

@@ -89,12 +89,13 @@ Route::middleware('auth')->group(function(){
 });
 
 
-
+// Setting Başlangıç
 Route::middleware('auth')->group(function(){
-    // Setting Başlangıç
+
     Route::get('admin/setting', [SettingController::class, 'index'])->name('admin_setting');
     Route::post('admin/setting/update', [SettingController::class, 'update'])->name('admin_setting_update');
 });
+// Setting Bitiş
 
 Auth::routes();
 
@@ -103,11 +104,19 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // User Profile Başlangıç
 Route::middleware('auth')->group(function(){
-    // Setting Başlangıç
+
     Route::get('/myaccount', [UserController::class, 'index'])->name('myprofile');
 
 });
 // User Profile Bitiş
+
+
+Route::middleware('auth')->group(function(){
+
+    Route::get('user/profile', [UserController::class, 'index'])->name('userprofile');
+
+});
+
 
 Route::middleware([
     'auth:sanctum',

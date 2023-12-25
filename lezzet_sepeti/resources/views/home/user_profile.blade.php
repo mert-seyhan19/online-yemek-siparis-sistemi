@@ -74,7 +74,7 @@
           @include('home.usermenu')
         </div>
 
-        <div id="main" class="col-8">
+        <div id="main" class="col-10">
             @include('profile.show')
         </div>
 

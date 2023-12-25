@@ -8,7 +8,7 @@
       @endauth
 
       @guest
-      <a href="/login" class="btn btn-primary login-button">Login</a>
+      <a href="{{route('admin_login')}}" class="btn btn-primary login-button">Login</a>
       <a href="/register" class="btn btn-primary login-button">Join</a>
       @endguest
 

@@ -28,6 +28,9 @@
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 
+      <link rel="stylesheet" href="{{ url('css/app.css') }}">
+
+
 
       <!-- owl stylesheets -->
       <link rel="stylesheet" href="{{asset('assets')}}/css/owl.carousel.min.css">
@@ -66,7 +69,7 @@
              </ul>
             <!--Modal Butonu Bitiş -->
 
-            
+
 
 
            </nav>
