@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\MessageController;
+
 
 
 
@@ -31,7 +33,10 @@ Route::get("/",[SayfalarControl::class,'index'])->name('index');
 Route::get("/anasayfa",[SayfalarControl::class,'anasayfa'])->name('anasayfa');
 Route::get("/aboutus",[SayfalarControl::class,'aboutus'])->name('aboutus');
 Route::get("/references",[SayfalarControl::class,'references'])->name('references');
-Route::get("/contact",[SayfalarControl::class,'contact'])->name('contact'); 
+Route::get("/contact",[SayfalarControl::class,'contact'])->name('contact');
+Route::post("/sendmessage",[SayfalarControl::class,'sendmessage'])->name('sendmessage');
+
+
 Route::get("/kategoriler",[SayfalarControl::class,'categorylist']);
 Route::get("/kebaplar",[SayfalarControl::class,'kebaplar']);
 Route::get("/pizzalar",[SayfalarControl::class,'pizzalar']);
@@ -65,6 +70,18 @@ Route::middleware('auth')->group(function(){
     Route::get('admin/category/show', [CategoryController::class, 'show'])->name('admin_category_show');
     // Kategori Ekleme Bitiş
 });
+
+
+Route::middleware('auth')->group(function(){
+    // Mesajlar Başlangıç
+    Route::get("admin/messages",[MessageController::class,'index'])->name('admin_message');
+    Route::get('admin/messages/edit/{id}', [MessageController::class, 'edit'])->name('admin_message_edit');
+    Route::post('admin/messages/update/{id}', [MessageController::class, 'update'])->name('admin_message_update');
+    Route::get('admin/messages/delete/{id}', [MessageController::class, 'destroy'])->name('admin_message_delete');
+    Route::get('admin/messages/show', [MessageController::class, 'show'])->name('admin_message_show');
+    // Mesajlar Bitiş
+});
+
 
 
 Route::middleware('auth')->group(function(){

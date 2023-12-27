@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Setting;
+use App\Models\Message;
 
 class SayfalarControl extends Controller
 {
@@ -50,6 +51,19 @@ class SayfalarControl extends Controller
       {
         $setting = Setting::first();
         return view('home.contact',['setting'=>$setting]);
+      }
+
+      public function sendmessage(Request $request)
+      {
+        $data = new Message();
+        $data->name = $request->input('name');
+        $data->email = $request->input('email');
+        $data->phone = $request->input('phone');
+        $data->subject = $request->input('subject');
+        $data->message = $request->input('message');
+
+        $data->save();
+        return redirect()->route('contact')->with('success','Mesajınız kaydedilmiştir, Teşekkür ederiz.');
       }
 
 

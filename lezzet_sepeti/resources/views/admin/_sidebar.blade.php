@@ -46,18 +46,12 @@
         </li>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+        <li class="nav-item">
+          <a href="{{route('admin_message')}}" class="nav-link">
+            <i class="nav-icon fas fa-copy"></i>
+              İletişim Mesajları
+          </a>
+        </li>
 
 
 

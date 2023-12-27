@@ -21,7 +21,7 @@
 <div class="section">
   <div class="container">
     <div class="row">
-        <br><br><br>
+
       {!!$setting->aboutus!!}
         <br>
     </div>

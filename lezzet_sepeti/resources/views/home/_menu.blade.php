@@ -1,5 +1,5 @@
             <li class="nav-item mr-5">
-							<a class="nav-link" href="http://localhost/lezzet_sepeti/"><i class="fas fa-home mr-1"></i>Anasayfa</a>
+							<a class="nav-link" href="{{route('index')}}"><i class="fas fa-home mr-1"></i>Anasayfa</a>
 						</li>
 						<li class="nav-item mr-5">
 							<a class="nav-link" href="{{route('aboutus')}}"><i class="fas fa-book mr-1"></i>Hakkımızda</a>
