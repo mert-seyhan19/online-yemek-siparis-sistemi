@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Setting;
+use App\Models\Product;
 use App\Models\Message;
 
 class SayfalarControl extends Controller
@@ -31,8 +32,24 @@ class SayfalarControl extends Controller
       public function index()
       {
         $setting = Setting::first();
-        return view('home.index',['setting'=>$setting]);
+        $slider = Product::select('id','title','image','price')->limit(15)->get();
+
+        $data = [
+          'setting'=>$setting,
+          'slider'=>$slider,
+          'page'=>'home'
+        ];
+        return view('home.index',$data);
       }
+
+
+      public function product($id)
+      {
+        $data = Product::find($id);
+        print_r($data);
+        exit();
+      }
+
 
       public function aboutus()
       {

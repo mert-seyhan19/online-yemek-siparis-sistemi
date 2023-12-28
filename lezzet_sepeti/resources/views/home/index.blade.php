@@ -44,8 +44,8 @@
 
 
   <!-- gallery section start -->
-  <div class="gallery_section layout_padding">
-     <div class="container">
+  <div class="gallery_section layout_padding ">
+     <div class="container ">
         <div class="row">
            <div class="col-sm-12">
               <h1 class="gallery_taital">Galeri</h1>
@@ -53,94 +53,28 @@
            </div>
         </div>
         <div class="">
-           <div class="gallery_section_2">
-              <div class="row">
-                 <div class="col-md-4">
+           <div class="gallery_section_2 ">
+              <div class="row ">
+                @foreach($slider as $rs)
+                 <div class="col-md-4 center-button">
                     <div class="container_main">
-                       <img src="{{asset('assets')}}/images/galeri1.jpg" alt="Avatar" class="image">
+                       <img src="{{ Storage::url($rs->image)}}" alt="Avatar" class="image m-2">
                        <div class="overlay">
-                          <div class="text"><a href="#"></a></div>
+                          <div class="text"><a href="#">{{$rs->title}}</a></div>
                        </div>
                     </div>
+                     <p style="color: green; font-weight: bold; text-align: center;">{{$rs->price}} TL</p>
+                     <a href="{{route('product',['id'=>$rs->id])}}" style="padding: 5px 10px; font-size: 16px; background-color: red; color: white; ">
+                      Sipariş Ver
+                    </a>
                  </div>
-                 <div class="col-md-4">
-                    <div class="container_main">
-                       <img src="{{asset('assets')}}/images/galeri2.jpg" alt="Avatar" class="image">
-                       <div class="overlay">
-                          <div class="text"><a href="#"></a></div>
-                       </div>
-                    </div>
-                 </div>
-                 <div class="col-md-4">
-                    <div class="container_main">
-                       <img src="{{asset('assets')}}/images/galeri3.jpg" alt="Avatar" class="image">
-                       <div class="overlay">
-                          <div class="text"><a href="#"></a></div>
-                       </div>
-                    </div>
-                 </div>
+                 @endforeach
+
+
               </div>
            </div>
-           <div class="gallery_section_2">
-              <div class="row">
-                 <div class="col-md-4">
-                    <div class="container_main">
-                       <img src="{{asset('assets')}}/images/galeri4.jpg" alt="Avatar" class="image">
-                       <div class="overlay">
-                          <div class="text"><a href="#"></a></div>
-                       </div>
-                    </div>
-                 </div>
-                 <div class="col-md-4">
-                    <div class="container_main">
-                       <img src="{{asset('assets')}}/images/galeri5.jpg" alt="Avatar" class="image">
-                       <div class="overlay">
-                          <div class="overlay">
-                             <div class="text"><a href="#"></a></div>
-                          </div>
-                       </div>
-                    </div>
-                 </div>
-                 <div class="col-md-4">
-                    <div class="container_main">
-                       <img src="{{asset('assets')}}/images/galeri6.jpg" alt="Avatar" class="image">
-                       <div class="overlay">
-                          <div class="overlay">
-                             <div class="text"><a href="#"></a></div>
-                          </div>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-           </div>
-           <div class="gallery_section_2">
-              <div class="row">
-                 <div class="col-md-4">
-                    <div class="container_main">
-                       <img src="{{asset('assets')}}/images/galeri7.jpg" alt="Avatar" class="image">
-                       <div class="overlay">
-                          <div class="text"><a href="#"></a></div>
-                       </div>
-                    </div>
-                 </div>
-                 <div class="col-md-4">
-                    <div class="container_main">
-                       <img src="{{asset('assets')}}/images/galeri8.jpg" alt="Avatar" class="image">
-                       <div class="overlay">
-                          <div class="text"><a href="#"></a></div>
-                       </div>
-                    </div>
-                 </div>
-                 <div class="col-md-4">
-                    <div class="container_main">
-                       <img src="{{asset('assets')}}/images/galeri9.jpg" alt="Avatar" class="image">
-                       <div class="overlay">
-                          <div class="text"><a href="#"></a></div>
-                       </div>
-                    </div>
-                 </div>
-              </div>
-           </div>
+
+
         </div>
 
      </div>

@@ -31,6 +31,9 @@
       <link rel="stylesheet" href="{{ url('css/app.css') }}">
 
 
+      
+
+
 
       <!-- owl stylesheets -->
       <link rel="stylesheet" href="{{asset('assets')}}/css/owl.carousel.min.css">

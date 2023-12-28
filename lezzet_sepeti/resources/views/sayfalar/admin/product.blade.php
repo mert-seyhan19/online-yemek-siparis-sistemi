@@ -92,7 +92,7 @@
                  <thead>
                  <tr>
                    <th>Id</th>
-                   <th>Category</th>
+                  <!-- <th>Category</th>   -->
                    <th>Title(s)</th>
                    <!--<th>Detail</th> -->
                    <th>Price</th>
@@ -110,9 +110,15 @@
 
                  <tr>
                    <td>{{ $rs->id }}</td>
-                   <td>
-                     {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category,$rs->category->title)}}
-                   </td>
+                   <!--<td>    -->
+
+                    <!--  @if ($rs->category)   -->
+                    <!--      {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category, $rs->category->title) }}   -->
+                  <!--    @else  -->
+                          <!-- Eğer $rs->category null ise burada yapılacak işlemler -->
+                  <!--    @endif   -->
+
+                <!--   </td>  -->
                    <td>{{ $rs->title }}</td>
                    <!-- <td>{{ $rs->detail }}</td> -->
                    <td>{{ $rs->price }}</td>

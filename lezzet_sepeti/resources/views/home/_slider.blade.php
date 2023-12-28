@@ -3,6 +3,9 @@
          <div class="container">
             <div id="main_slider" class="carousel slide" data-ride="carousel">
                <div class="carousel-inner">
+
+
+
                   <div class="carousel-item active">
                      <div class="row">
                         <div class="col-sm-12">
@@ -15,6 +18,9 @@
                         </div>
                      </div>
                   </div>
+
+                  
+
                   <div class="carousel-item">
                      <div class="row">
                         <div class="col-sm-12">

@@ -36,6 +36,8 @@ Route::get("/references",[SayfalarControl::class,'references'])->name('reference
 Route::get("/contact",[SayfalarControl::class,'contact'])->name('contact');
 Route::post("/sendmessage",[SayfalarControl::class,'sendmessage'])->name('sendmessage');
 
+Route::get("/product/{id}",[SayfalarControl::class,'product'])->name('product'); //ürünlerin satın alınması için
+
 
 Route::get("/kategoriler",[SayfalarControl::class,'categorylist']);
 Route::get("/kebaplar",[SayfalarControl::class,'kebaplar']);

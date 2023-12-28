@@ -272,15 +272,15 @@ button {
     height: auto;
     background-size: 100%;
     padding: 10px 0px 25px 0px;
-    background-repeat: no-repeat;			
+    background-repeat: no-repeat;
 }
 
 .banner_taital {
     width: 100%;
     float: left;
     padding: 100px 0px;
-	
-}   
+
+}
 
 
 
@@ -1016,7 +1016,7 @@ a:hover {
     margin-top: 90px;
 }
 
-   
+
         .modal-footer {
             display: flex;
             justify-content: center;
@@ -1025,12 +1025,18 @@ a:hover {
             height: 13vh;
         }
 		#loginModal .modal-footer {
-			height: 80px; /* Desired height value */	
+			height: 80px; /* Desired height value */
 		}
         .modal-login-button {
             width: 100%;
             padding: 15px 30px;
             font-size: 20px;
         }
+
+
+
+
+          .center-button {
+            text-align: center;
+          }
         
-		

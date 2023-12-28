@@ -20,6 +20,7 @@ class ProductController extends Controller
     public function index()
     {
         $datalist = Product::all();
+
         return view('sayfalar.admin.product', ['datalist' => $datalist]);
     }
 
