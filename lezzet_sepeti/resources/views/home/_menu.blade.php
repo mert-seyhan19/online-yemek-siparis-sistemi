@@ -22,3 +22,5 @@
 						<li class="nav-item">
 							<a class="nav-link" href="{{route('contact')}}"><i class="fas fa-envelope mr-1"></i>İletişim</a>
 						</li>
+
+            

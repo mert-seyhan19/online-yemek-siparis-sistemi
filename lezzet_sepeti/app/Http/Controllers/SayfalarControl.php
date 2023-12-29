@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Setting;
 use App\Models\Product;
 use App\Models\Message;
+use App\Models\Image;
 
 class SayfalarControl extends Controller
 {
@@ -34,9 +35,11 @@ class SayfalarControl extends Controller
         $setting = Setting::first();
         $slider = Product::select('id','title','image','price')->limit(15)->get();
 
+
         $data = [
           'setting'=>$setting,
           'slider'=>$slider,
+
           'page'=>'home'
         ];
         return view('home.index',$data);
@@ -46,8 +49,10 @@ class SayfalarControl extends Controller
       public function product($id)
       {
         $data = Product::find($id);
-        print_r($data);
-        exit();
+        $datalist = Image::where('product_id',$id)->get();
+        #print_r($data);
+        #exit();
+        return view('home.product_detail',['data'=>$data, 'datalist'=>$datalist]);
       }
 
 
