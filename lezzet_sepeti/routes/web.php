@@ -36,7 +36,8 @@ Route::get("/references",[SayfalarControl::class,'references'])->name('reference
 Route::get("/contact",[SayfalarControl::class,'contact'])->name('contact');
 Route::post("/sendmessage",[SayfalarControl::class,'sendmessage'])->name('sendmessage');
 
-Route::get("/product/{id}",[SayfalarControl::class,'product'])->name('product'); //ürünlerin satın alınması için
+Route::get("/product/{id}",[SayfalarControl::class,'product'])->name('product'); //ürünlerin bilgilerini anasayfanın galeri bölümüne ekler
+Route::get("/categoryproducts/{id}",[SayfalarControl::class,'categoryproducts'])->name('categoryproducts'); //Kategori bölümü
 
 
 Route::get("/kategoriler",[SayfalarControl::class,'categorylist']);

@@ -51,6 +51,16 @@ class SayfalarControl extends Controller
       }
 
 
+      public function categoryproducts($id)
+      {
+        $datalist = Product::where('category_id',$id)->get();
+        $data = Category::find($id);
+        //print_r($data);
+        //exit();
+        return view('home.category_products',['data'=>$data, 'datalist'=>$datalist]);
+      }
+
+
       public function aboutus()
       {
         $setting = Setting::first();

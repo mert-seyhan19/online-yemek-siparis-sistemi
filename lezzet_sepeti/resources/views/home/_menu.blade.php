@@ -9,11 +9,11 @@
 								<i class="fas fa-bars"></i> Menüler
 							</a>
 							<div class="dropdown-menu" aria-labelledby="menuDropdown"> <!-- Dropdown menüsü -->
-								<a class="dropdown-item" href="http://localhost/lezzet_sepeti/kebaplar.html">Kebaplar</a>
-								<a class="dropdown-item" href="http://localhost/lezzet_sepeti/pizzalar.html">Pizzalar</a>
-								<a class="dropdown-item" href="http://localhost/lezzet_sepeti/pideler.html">Pideler</a>
-								<a class="dropdown-item" href="http://localhost/lezzet_sepeti/tatlilar.html">Tatlılar</a>
-								<a class="dropdown-item" href="http://localhost/lezzet_sepeti/icecekler.html">İçecekler</a>
+								<a class="dropdown-item" href="http://localhost:8000/categoryproducts/1">Kebaplar</a>
+								<a class="dropdown-item" href="http://localhost:8000/categoryproducts/2">Pizzalar</a>
+								<a class="dropdown-item" href="http://localhost:8000/categoryproducts/3">Pideler</a>
+								<a class="dropdown-item" href="http://localhost:8000/categoryproducts/4">Tatlılar</a>
+								<a class="dropdown-item" href="http://localhost:8000/categoryproducts/5">İçecekler</a>
 							</div>
 						</li>
             <li class="nav-item mr-5">

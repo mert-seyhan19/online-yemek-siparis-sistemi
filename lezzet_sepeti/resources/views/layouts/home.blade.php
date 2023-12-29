@@ -31,7 +31,7 @@
       <link rel="stylesheet" href="{{ url('css/app.css') }}">
 
 
-      
+
 
 
 
@@ -58,7 +58,7 @@
               <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav">
 
-              @include('home._category')
+              
               @include('home._menu')
 
                     </ul>
