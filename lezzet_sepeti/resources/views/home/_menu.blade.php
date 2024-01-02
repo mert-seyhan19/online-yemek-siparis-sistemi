@@ -16,11 +16,15 @@
 								<a class="dropdown-item" href="http://localhost:8000/categoryproducts/5">İçecekler</a>
 							</div>
 						</li>
+
             <li class="nav-item mr-5">
 							<a class="nav-link" href="{{route('references')}}"><i class="fas fa-book mr-1"></i>Referanslar</a>
 						</li>
+
+            <li class="nav-item mr-5">
+							<a class="nav-link" href="{{route('faq')}}"><i class="fas fa-book mr-1"></i>Sıkça Sorulan Sorular</a>
+						</li>
+
 						<li class="nav-item">
 							<a class="nav-link" href="{{route('contact')}}"><i class="fas fa-envelope mr-1"></i>İletişim</a>
 						</li>
-
-            

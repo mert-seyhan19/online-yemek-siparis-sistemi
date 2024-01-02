@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\MessageController;
-
+use App\Http\Controllers\Admin\FaqController;
 
 
 
@@ -34,6 +34,7 @@ Route::get("/anasayfa",[SayfalarControl::class,'anasayfa'])->name('anasayfa');
 Route::get("/aboutus",[SayfalarControl::class,'aboutus'])->name('aboutus');
 Route::get("/references",[SayfalarControl::class,'references'])->name('references');
 Route::get("/contact",[SayfalarControl::class,'contact'])->name('contact');
+Route::get("/faq",[SayfalarControl::class,'faq'])->name('faq');
 Route::post("/sendmessage",[SayfalarControl::class,'sendmessage'])->name('sendmessage');
 
 Route::get("/product/{id}",[SayfalarControl::class,'product'])->name('product'); //ürünlerin bilgilerini anasayfanın galeri bölümüne ekler
@@ -118,6 +119,23 @@ Route::middleware('auth')->group(function(){
     Route::post('admin/setting/update', [SettingController::class, 'update'])->name('admin_setting_update');
 });
 // Setting Bitiş
+
+
+
+// Faq Başlangıç
+Route::middleware('auth')->group(function(){
+Route::get('/admin/faq', [FaqController::class, 'index'])->name('admin_faq');
+Route::get('admin/faq/create', [FaqController::class, 'create'])->name('admin_faq_add');
+Route::post('admin/faq/store', [FaqController::class, 'store'])->name('admin_faq_store');
+Route::get('admin/faq/edit/{id}', [FaqController::class, 'edit'])->name('admin_faq_edit');
+Route::post('admin/faq/update/{id}', [FaqController::class, 'update'])->name('admin_faq_update');
+Route::get('admin/faq/delete/{id}', [FaqController::class, 'destroy'])->name('admin_faq_delete');
+Route::get('admin/faq/show', [FaqController::class, 'show'])->name('admin_faq_show');
+});
+// Faq Bitiş
+
+
+
 
 Auth::routes();
 

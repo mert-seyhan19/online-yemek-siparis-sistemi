@@ -8,6 +8,8 @@ use App\Models\Setting;
 use App\Models\Product;
 use App\Models\Message;
 use App\Models\Image;
+use App\Models\Faq;
+
 
 class SayfalarControl extends Controller
 {
@@ -77,6 +79,12 @@ class SayfalarControl extends Controller
       {
         $setting = Setting::first();
         return view('home.references',['setting'=>$setting]);
+      }
+
+      public function faq()
+      {
+        $datalist = Faq::all()->sortBy('position');
+        return view('home.faq',['datalist'=>$datalist]);
       }
 
       public function contact()

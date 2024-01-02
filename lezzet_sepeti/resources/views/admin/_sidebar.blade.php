@@ -54,7 +54,12 @@
         </li>
 
 
-
+        <li class="nav-item">
+          <a href="{{route('admin_faq')}}" class="nav-link">
+            <i class="nav-icon fas fa-copy"></i>
+              Sıkça Sorulan Sorular
+          </a>
+        </li>
 
 
 
