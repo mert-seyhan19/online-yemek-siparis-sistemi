@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin | Kategori Sayfası</title>
+  <title>Admin | Order List</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -25,6 +25,20 @@
   <link rel="stylesheet" href="{{asset('assets')}}/admin/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('assets')}}/admin/plugins/summernote/summernote-bs4.min.css">
+
+
+
+  <!-- Aşağıdaki kodlar ile zengin metin kutusu oluşturuyoruz -->
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -45,18 +59,18 @@
 
 
   <!-- Content Wrapper. Contains page content -->
-   <div class="content-wrapper">
+<div class="content-wrapper">
      <!-- Content Header (Page header) -->
      <section class="content-header">
        <div class="container-fluid">
          <div class="row mb-2">
            <div class="col-sm-6">
-             <h1>Kategoriler</h1>
+             <h1>Sipariş Listesi</h1>
            </div>
            <div class="col-sm-6">
              <ol class="breadcrumb float-sm-right">
                <li class="breadcrumb-item"><a href="#">Home</a></li>
-               <li class="breadcrumb-item active">Kategori</li>
+               <li class="breadcrumb-item active">Sipariş Listesi</li>
              </ol>
            </div>
          </div>
@@ -66,65 +80,67 @@
      <!-- Main content -->
      <section class="content">
 
-       <!-- Default box -->
-           <div class="card">
-             <div class="card-header">
-
-               <a class="btn  btn-info" href="{{route('admin_category_add')}}">Kategori Ekle</a>
-             </div>
-             <!-- /.card-header -->
-             <div class="card-body">
-               <table id="example1" class="table table-bordered table-striped">
-                 <thead>
-                 <tr>
-                   <th>Id</th>
-                   <th>Parent</th>
-                   <th>Title</th>
-                   <th>Status</th>
-                   <th>Edit</th>
-                   <th>Delete</th>
-                 </tr>
-                 </thead>
-                 <tbody>
-
-                  @foreach ($datalist as $rs)
 
 
 
-                 <tr>
-                   <td>{{ $rs->id }}</td>
-                   <td>
-                     {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}
-                   </td>
-                   <td>{{ $rs->title }}</td>
-                   <td>{{ $rs->status }}</td>
-                   <td><a href="{{route('admin_category_edit', ['id' => $rs->id])}}">Edit</a></td>
-                   <td><a href="{{route('admin_category_delete', ['id' => $rs->id])}}" onclick="return confirm('Silmek istediğinize emin misiniz?')">Delete</a></td>
-                 </tr>
-
-                  @endforeach
 
 
-
-                 </tbody>
-
-               </table>
-             </div>
-             <!-- /.card-body -->
-           </div>
-           <!-- /.card -->
-
-         </div>
          <div class="card-body">
 
+
+           <table id="example1" class="table table-bordered table-striped">
+             <thead>
+             <tr>
+               <th>Id</th>
+               <th>User</th>
+               <th>Name</th>
+               <th>Phone</th>
+               <th>Email</th>
+               <th>Address</th>
+               <th>Total</th>
+               <th>Date</th>
+               <th>Status</th>
+               <th style="" colspan="2">Actions</th>
+             </tr>
+             </thead>
+             <tbody>
+
+              @foreach ($datalist as $rs)
+
+
+
+             <tr>
+               <td>{{ $rs->id }}</td>
+               <td>{{ $rs->user->name }}</td>
+               <td>{{ $rs->name }}</td>
+               <td>{{ $rs->phone }}</td>
+               <td>{{ $rs->email }}</td>
+               <td>{{ $rs->address }}</td>
+               <td>{{ $rs->total }}</td>
+               <td>{{ $rs->created_at }}</td>
+               <td>{{ $rs->status }}</td>
+
+               <td>
+                 <a href="{{route('admin_order_show', ['id' => $rs->id])}}">
+                   <img src="{{asset('assets/admin/images')}}/edit.png" height="25" style="width:30px">
+                 </a>
+                </td>
+
+
+             </tr>
+
+              @endforeach
+
+
+
+             </tbody>
+
+           </table>
+
+
+
          </div>
-         <!-- /.card-body -->
-         <div class="card-footer">
-           Footer
-         </div>
-         <!-- /.card-footer-->
-       </div>
-       <!-- /.card -->
+
 
      </section>
      <!-- /.content -->
@@ -160,8 +176,8 @@
 <!-- ./wrapper -->
 
 
-<!-- jQuery -->
-<script src="{{asset('assets')}}/admin/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery Aşağıda yazan kodu çalıştırınca zengin metin kutusu bozuluyor -->
+<!-- <script src="{{asset('assets')}}/admin/plugins/jquery/jquery.min.js"></script> -->
 <!-- Bootstrap 4 -->
 <script src="{{asset('assets')}}/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->

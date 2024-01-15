@@ -14,7 +14,10 @@
 
         <div class="dropdown-menu">
           <a class="dropdown-item" href="{{route('myprofile')}}">My Account</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="{{route('user_orders')}}">My Orders</a>
+          <a class="dropdown-item" href="{{route('user_products')}}">My Menu</a>
+          <a class="dropdown-item" href="{{route('user_shopcart')}}">My Shopcart</a>
+
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
         </div>

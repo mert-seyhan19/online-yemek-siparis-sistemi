@@ -64,6 +64,63 @@
 
 
 
+        <li class="nav-item has-treeview">
+          <a href="" class="nav-link active">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Siparişler
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+
+            <li class="nav-item">
+              <a href="{{route('admin_orders')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Tüm Siparişler</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{route('admin_order_list',['status'=>'new'])}}" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Yeni Siparişler</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{route('admin_order_list',['status'=>'accepted'])}}" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Kabul Edilen Siparişler</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{route('admin_order_list',['status'=>'canceled'])}}" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>İptal Edilen Siparişler</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{route('admin_order_list',['status'=>'shipping'])}}" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Kargoda Olan Siparişler</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{{route('admin_order_list',['status'=>'completed'])}}" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Tamamlanmış Siparişler</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+
+
+
 
         <li class="nav-item">
           <a href="#" class="nav-link">

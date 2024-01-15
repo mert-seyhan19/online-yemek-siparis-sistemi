@@ -45,9 +45,9 @@
 
 
 
-  @include('sablon.admin._header')
+  @include('admin._header')
 
-  @include('sablon.admin._sidebar')
+  @include('admin._sidebar')
 
 
 

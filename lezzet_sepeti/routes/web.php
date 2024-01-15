@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SayfalarControl;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ShopcartController;
+use App\Http\Controllers\OrderController;
 
 
 use App\Http\Controllers\Admin\HomeController;
@@ -14,6 +16,7 @@ use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 
 
 
@@ -64,15 +67,17 @@ Route::get('/admin', [HomeController::class, 'index'])->name('admin')->middlewar
 
 
 Route::middleware('auth')->group(function(){
-    // Kategori Ekleme Başlangıç
-    Route::get('admin/category', [CategoryController::class, 'index'])->name('admin_category');
-    Route::get('admin/category/add', [CategoryController::class, 'add'])->name('admin_category_add');
-    Route::post('admin/category/create', [CategoryController::class, 'create'])->name('admin_category_create');
-    Route::get('admin/category/edit/{id}', [CategoryController::class, 'edit'])->name('admin_category_edit');
-    Route::post('admin/category/update/{id}', [CategoryController::class, 'update'])->name('admin_category_update');
-    Route::get('admin/category/delete/{id}', [CategoryController::class, 'destroy'])->name('admin_category_delete');
-    Route::get('admin/category/show', [CategoryController::class, 'show'])->name('admin_category_show');
-    // Kategori Ekleme Bitiş
+  //Route::middleware('admin')->group(function(){
+        // Kategori Ekleme Başlangıç
+        Route::get('admin/category', [CategoryController::class, 'index'])->name('admin_category');
+        Route::get('admin/category/add', [CategoryController::class, 'add'])->name('admin_category_add');
+        Route::post('admin/category/create', [CategoryController::class, 'create'])->name('admin_category_create');
+        Route::get('admin/category/edit/{id}', [CategoryController::class, 'edit'])->name('admin_category_edit');
+        Route::post('admin/category/update/{id}', [CategoryController::class, 'update'])->name('admin_category_update');
+        Route::get('admin/category/delete/{id}', [CategoryController::class, 'destroy'])->name('admin_category_delete');
+        Route::get('admin/category/show', [CategoryController::class, 'show'])->name('admin_category_show');
+        // Kategori Ekleme Bitiş
+//  });
 });
 
 
@@ -112,6 +117,29 @@ Route::middleware('auth')->group(function(){
 });
 
 
+// Shopcart Başlangıç
+  Route::middleware('auth')->group(function(){
+    Route::get('/shopcart', [ShopcartController::class, 'index'])->name('user_shopcart');
+    Route::post('shopcart/store/{id}', [ShopcartController::class, 'store'])->name('user_shopcart_add');
+    Route::post('shopcart/update/{id}', [ShopcartController::class, 'update'])->name('user_shopcart_update');
+    Route::get('shopcart/delete/{id}', [ShopcartController::class, 'destroy'])->name('user_shopcart_delete');
+    // Shopcart Bitiş
+});
+
+
+// Order Başlangıç
+Route::middleware('auth')->group(function(){
+Route::get('/order', [OrderController::class, 'index'])->name('user_orders');
+Route::post('order/create', [OrderController::class, 'create'])->name('user_order_add');
+Route::post('order/store', [OrderController::class, 'store'])->name('user_order_store');
+Route::get('order/edit/{id}', [OrderController::class, 'edit'])->name('user_order_edit');
+Route::post('order/update/{id}', [OrderController::class, 'update'])->name('user_order_update');
+Route::get('order/delete/{id}', [OrderController::class, 'destroy'])->name('user_order_delete');
+Route::get('order/show/{id}', [OrderController::class, 'show'])->name('user_order_show');
+});
+// Order Bitiş
+
+
 // Setting Başlangıç
 Route::middleware('auth')->group(function(){
 
@@ -135,6 +163,20 @@ Route::get('admin/faq/show', [FaqController::class, 'show'])->name('admin_faq_sh
 // Faq Bitiş
 
 
+// Admin Order Başlangıç
+Route::middleware('auth')->group(function(){
+Route::get('/admin/order', [AdminOrderController::class, 'index'])->name('admin_orders');
+Route::get('admin/order/list/{status}', [AdminOrderController::class, 'list'])->name('admin_order_list');
+Route::post('admin/order/create', [AdminOrderController::class, 'create'])->name('admin_order_add');
+Route::post('admin/order/store', [AdminOrderController::class, 'store'])->name('admin_order_store');
+Route::get('admin/order/edit/{id}', [AdminOrderController::class, 'edit'])->name('admin_order_edit');
+Route::post('admin/order/update/{id}', [AdminOrderController::class, 'update'])->name('admin_order_update');
+Route::post('admin/order/itemupdate/{id}', [AdminOrderController::class, 'itemupdate'])->name('admin_order_item_update');
+Route::get('admin/order/delete/{id}', [AdminOrderController::class, 'destroy'])->name('admin_order_delete');
+Route::get('admin/order/show/{id}', [AdminOrderController::class, 'show'])->name('admin_order_show');
+});
+// Admin Order Bitiş
+
 
 
 Auth::routes();
@@ -154,6 +196,24 @@ Route::middleware('auth')->group(function(){
 Route::middleware('auth')->group(function(){
 
     Route::get('user/profile', [UserController::class, 'index'])->name('userprofile');
+
+      Route::get('/user/product', [App\Http\Controllers\ProductController::class, 'index'])->name('user_products');
+      Route::get('user/product/create', [App\Http\Controllers\ProductController::class, 'create'])->name('user_product_add');
+      Route::post('user/product/store', [App\Http\Controllers\ProductController::class, 'store'])->name('user_product_store');
+      Route::get('user/product/edit/{id}', [App\Http\Controllers\ProductController::class, 'edit'])->name('user_product_edit');
+      Route::post('user/product/update/{id}', [App\Http\Controllers\ProductController::class, 'update'])->name('user_product_update');
+      Route::get('user/product/delete/{id}', [App\Http\Controllers\ProductController::class, 'destroy'])->name('user_product_delete');
+      Route::get('user/product/show', [App\Http\Controllers\ProductController::class, 'show'])->name('user_product_show');
+
+
+      // Resim Ekleme Başlangıç
+      Route::middleware('admin')->group(function(){
+      Route::get('user/image/create/{product_id}', [ImageController::class, 'create'])->name('user_image_add');
+      Route::post('user/image/store/{product_id}', [ImageController::class, 'store'])->name('user_image_store');
+      Route::get('user/image/delete/{id}/{product_id}', [ImageController::class, 'destroy'])->name('user_image_delete');
+      Route::get('user/image/show', [ImageController::class, 'show'])->name('user_image_show');
+    });
+      // Resim Ekleme Bitiş
 
 });
 

@@ -47,6 +47,19 @@
       </div>
 
 
+      <div class="product-btns">
+        <form action="{{route('user_shopcart_add',['id' => $data->id])}}" method="post">
+          @csrf
+          <div class="qtv-input">
+            <span class="text-uppercase">Miktar: </span>
+            <input class="input" name="quantity" type="number" value="1"> <br><br>
+          </div>
+          <button type="submit" class="primary-btn"><i class="fa fa-shopping-cart">Sepete Ekle</i></button> <br><br>
+          @include('home.message')
+        </form>
+      </div>
+
+
 
 
     </div>
